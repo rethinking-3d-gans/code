@@ -3,7 +3,8 @@
 [[Website]](https://rethinking-3d-gans.github.io)
 [[Paper]](https://rethinking-3d-gans.github.io/rethinking-3d-gans.pdf)
 
-<img src="teaser.jpg"/>
+![teaser](https://user-images.githubusercontent.com/105873229/170562989-bd409c04-bc49-4439-9b2e-7f6986eaa9e5.jpg)
+
 
 ## Installation
 To install and activate the environment, run the following command:
