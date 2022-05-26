@@ -1,0 +1,14 @@
+defaults:
+  - model/base.yaml
+  - model: eg3d
+
+  # Import dataset common and overwrite it with the custom one
+  - dataset/base.yaml
+  - dataset: ffhq
+
+  - training/base.yaml
+  - training: patch_uniform
+
+  - env/base.yaml
+  - env: local
+  - infra.yaml

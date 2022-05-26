@@ -1,0 +1,33 @@
+# @package _group_
+
+generator:
+  fmaps: 1.0 # # Capacity multiplier --- the default one is 1.0
+  cmax: 512
+  cbase: 32768
+  optim:
+    betas: [0.0, 0.99]
+  patch: ${training.patch}
+  dataset: ${dataset}
+  w_dim: 512
+  camera_cond: false
+  camera_cond_drop_p: 0.0
+  camera_cond_spoof_p: 0.5
+discriminator:
+  fmaps: 0.5 # # Capacity multiplier --- the default one is 1.0
+  cmax: 512
+  cbase: 32768
+  patch: ${training.patch}
+  num_additional_start_blocks: 0
+  mbstd_group_size: 4 # Minibatch std group size
+  camera_cond: false
+  camera_cond_drop_p: 0.0
+  predict_pose_loss_weight: ${training.predict_pose_loss_weight}
+  renorm: false
+
+  # Hyper-modulation parameters
+  hyper_type: no_hyper # One of ["no_hyper", "hyper", "dummy_hyper"]. Disable by default.
+  optim:
+    lr: 0.002
+    betas: [0.0, 0.99]
+loss_kwargs:
+  pl_weight: 0.0

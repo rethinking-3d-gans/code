@@ -1,0 +1,28 @@
+defaults:
+  - vis: front_grid
+  - camera: points
+
+# Checkpoint loading options
+ckpt:
+  network_pkl: ~ # Network pickle filename
+  networks_dir: ~ # Network pickles directory
+  selection_metric: fid2k_full # Which metric to use when selecting the best ckpt?
+  reload_code: true
+
+# Randomness options
+seed: 1 # Random seed to fix non-generation randomness
+seeds: ~
+num_seeds: ~
+
+# Inference options
+batch_size: 16
+truncation_psi: 0.7 # Truncation psi.
+max_batch_res: 64 # Split image generation into chunks of the `max_batch_res`^2 resolution
+img_resolution: 256 # Image resolution of the generator?
+ray_step_multiplier: 2 # Inrease in the number of steps per ray
+synthesis_kwargs: {} # Empty by default
+force_whiteback: false
+
+# Logging options
+verbose: true
+output_dir: ~

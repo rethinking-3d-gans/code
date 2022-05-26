@@ -1,0 +1,8 @@
+# @package _group_
+
+name: patch_categ_p${training.patch.resolution}
+patch:
+  distribution: categorical
+  support: [0.25, 0.5, 1.0]
+  probs: [0.125, 0.175, 0.7]
+  anneal_kimg: 0

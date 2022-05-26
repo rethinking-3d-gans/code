@@ -1,0 +1,48 @@
+# @package _group_
+
+name: eg3d
+generator:
+  backbone: stylegan2
+  num_ray_steps: 48
+  clamp_mode: softplus
+  nerf_noise_std_init: 1.0
+  nerf_noise_kimg_growth: 5000
+  use_noise: true # Should we use spatial noise in StyleGAN2?
+
+  nerf_sp_beta_init: 1.0
+  nerf_sp_beta_target: 1.0
+  nerf_sp_beta_kimg_growth: 5000
+
+  tri_plane:
+    res: 512
+    feat_dim: 32
+    fp32: true
+    last_block_fp32: false
+    view_hid_dim: 0
+    posenc_period_len: 0
+    mlp:
+      n_layers: 2
+      hid_dim: 64
+
+  bg_model:
+    type: ~ # One of [null, "plane", "sphere"]
+    output_channels: 4
+    coord_dim: 4
+    num_blocks: 2
+    cbase: 32768
+    cmax: 128
+    num_fp16_blocks: 0
+    fmm: {enabled: false, rank: 3, activation: demod}
+    posenc_period_len: 64.0 # Fourier features period length
+
+    # Sampling parameters
+    num_steps: 16 # Number of steps per ray
+    start: 1.0 # Start plane for the background (in terms of disparity)
+
+discriminator:
+  hyper_type: no_hyper
+  renorm: true
+
+loss_kwargs:
+  blur_init_sigma: 10
+  blur_fade_kimg: 200
