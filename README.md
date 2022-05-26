@@ -58,3 +58,11 @@ To create visualization videos, run:
 ```
 python src/scripts/inference.py hydra.run.dir=. ckpt.networks_dir=<CKPT_DIR> output_dir=<OUTPUT_DIR> vis=video camera=front_circle camera.num_frames=64 vis.fps=30 num_seeds=16
 ```
+
+## Rendering Megascans
+
+To render the megascans, obtain the necessary models from the [website](https://quixel.com/megascans/home), convert them into GLTF, create a `enb.blend` Blender environment, and then run:
+```
+blender --python render_dataset.py env.blend --background
+```
+The rendering config is located in `render_dataset.py`.
